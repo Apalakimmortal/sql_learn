@@ -55,59 +55,59 @@ INSERT INTO Title
     (6, 'Lead', '2016-06-11 00:00:00'),
     (3, 'Lead', '2016-06-11 00:00:00');
 
--- SELECT * FROM Worker;
--- SELECT * FROM Bonus;
--- SELECT * FROM Title;
+SELECT * FROM Worker;
+SELECT * FROM Bonus;
+SELECT * FROM Title;
 
--- Select department from Worker group by department;
--- Select distinct department, length(Department) As length from Worker;
+Select department from Worker group by department;
+Select distinct department, length(Department) As length from Worker;
 
--- Select Replace(first_name, 'a', 'A') from Worker;
+Select Replace(first_name, 'a', 'A') from Worker;
 
--- -- Select concat(first_name, ' ', last_name) As Name from Worker;
--- Select * from Worker order by first_name;
+-- Select concat(first_name, ' ', last_name) As Name from Worker;
+Select * from Worker order by first_name;
 
--- Select * from Worker Order by Department, first_name DESC;
--- Select first_name, department from Worker order by first_name, department desc;
+Select * from Worker Order by Department, first_name DESC;
+Select first_name, department from Worker order by first_name, department desc;
 
--- Select * from Worker where first_name NOT IN ('Vipul', 'Satish');
+Select * from Worker where first_name NOT IN ('Vipul', 'Satish');
 
- -- Select * from Worker where first_name IN ('Vipul', 'Satish');
+ Select * from Worker where first_name IN ('Vipul', 'Satish');
 
--- Select * from Worker where department LIKE "%admin%";
--- Select * from Worker where Department LIKE "a%";
--- Select * from Worker where first_name LIKE "a%";
+Select * from Worker where department LIKE "%admin%";
+Select * from Worker where Department LIKE "a%";
+Select * from Worker where first_name LIKE "a%";
 
--- select department, count(*) As count from Worker where department = 'Admin';
-
-
--- Select concat(first_name,' ',last_name) as fullName from Worker where Salary between 50000 and 100000;
--- Select department, count(WORKER_ID) from Worker group by department order by count(WORKER_ID) DESC;
-
--- Select * from Worker as w inner join Title as t on w.WORKER_ID = t.WORKER_REF_ID where t.WORKER_TITLE = 'Manager';
--- Select w.* from Worker as w inner join Title as t on w.WORKER_ID = t.WORKER_REF_ID where t.WORKER_TITLE = 'Manager';
--- Select t.* from Worker as w inner join Title as t on w.WORKER_ID = t.WORKER_REF_ID where t.WORKER_TITLE = 'Manager';
+select department, count(*) As count from Worker where department = 'Admin';
 
 
--- select worker_title, count(*) from Title group by worker_title having count(*) > 1;
+Select concat(first_name,' ',last_name) as fullName from Worker where Salary between 50000 and 100000;
+Select department, count(WORKER_ID) from Worker group by department order by count(WORKER_ID) DESC;
+
+Select * from Worker as w inner join Title as t on w.WORKER_ID = t.WORKER_REF_ID where t.WORKER_TITLE = 'Manager';
+Select w.* from Worker as w inner join Title as t on w.WORKER_ID = t.WORKER_REF_ID where t.WORKER_TITLE = 'Manager';
+Select t.* from Worker as w inner join Title as t on w.WORKER_ID = t.WORKER_REF_ID where t.WORKER_TITLE = 'Manager';
 
 
--- select * from Worker where (worker_id % 2) = 0;
+select worker_title, count(*) from Title group by worker_title having count(*) > 1;
+
+
+select * from Worker where (worker_id % 2) = 0;
 
 create table worker_clone like Worker;
 insert into worker_clone select * from Worker;
--- select * from worker_clone;
+select * from worker_clone;
 
--- select w.* from Worker As w inner join worker_clone using (worker_id)
+select w.* from Worker As w inner join worker_clone using (worker_id)
 
--- select Worker.* from Worker left join worker_clone using (worker_id) where worker_clone.worker_id is null;
+select Worker.* from Worker left join worker_clone using (worker_id) where worker_clone.worker_id is null;
 
 
 select curdate();
 select now();
 
--- select currdate();
+select currdate();
 
 select * from Worker order by salary desc limit 4, 1;
 
--- select * from Worker w1, Worker w2 where w1.salary = w2.salary and w1.worker.id = w2.worker_id;
+select * from Worker w1, Worker w2 where w1.salary = w2.salary and w1.worker.id = w2.worker_id;
